@@ -1,16 +1,23 @@
 import { BasePage } from './BasePage';
 
 export class HomePage extends BasePage {
-  async goToSignUp() {
-    await this.page.click('text=Sign up');
-  }
+    async navigateToHome(): Promise<void> {
+        await this.navigate('https://www.demoblaze.com/');
+    }
 
-  async goToLogin() {
-    await this.page.click('text=Log in');
-  }
+    async clickLogin(): Promise<void> {
+        await this.click('#login2');
+    }
+    
+    async clickSignUp(): Promise<void> {
+        await this.click('#signin2');
+    }
 
-  async searchForProduct(productName: string) {
-    await this.page.fill('#search_input', productName);
-    await this.page.click('#search_button');
-  }
+    async clickCart(): Promise<void> {
+        await this.click('#cartur');
+    }
+
+    async clickProduct(productName: string): Promise<void> {
+        await this.click(`text=${productName}`);
+    }
 }
