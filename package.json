@@ -1,16 +1,16 @@
 {
-  "name": "demoblaze-automation",
+  "name": "softone_playwright_js",
   "version": "1.0.0",
-  "description": "Test automation for Demoblaze e-commerce platform using Playwright and TypeScript.",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "playwright test"
+    "test": "npx playwright test"
   },
   "dependencies": {
-    "@playwright/test": "^1.46.0",
-    "playwright": "^1.46.0"
+    "@playwright/test": "^1.31.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.41",
-    "typescript": "^4.2.4"
+    "ts-jest": "^27.1.1",
+    "typescript": "^4.3.5"
   }
 }
