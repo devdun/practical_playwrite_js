@@ -1,30 +1,16 @@
 import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-  use: {
-    headless: true,
-    viewport: { width: 1280, height: 720 },
-    ignoreHTTPSErrors: true,
-    screenshot: 'on',
-    video: 'retain-on-failure',
-    baseURL: 'https://www.demoblaze.com/',
-  },
-  retries: 2,
-  reporter: [['list'], ['html', { outputFolder: 'test-results', open: 'always' }]],
-  projects: [
-    {
-      name: 'chromium',
-      use: { browserName: 'chromium' },
+    use: {
+        baseURL: 'https://www.demoblaze.com/',
+        headless: false, // Set to true if you want to run tests in headless mode
+        viewport: { width: 1280, height: 720 },
+        ignoreHTTPSErrors: true,
+        video: 'retain-on-failure',
+        screenshot: 'only-on-failure',
     },
-    {
-      name: 'firefox',
-      use: { browserName: 'firefox' },
-    },
-    {
-      name: 'webkit',
-      use: { browserName: 'webkit' },
-    },
-  ],
+    testDir: './src/tests',
+    timeout: 30000,
 };
 
 export default config;
