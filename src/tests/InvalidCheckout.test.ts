@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
-import { userData } from '../data/TestData';  // Correct import path
+import { userData } from '../data/TestData';  
 
 test('Attempt to checkout with an empty cart', async ({ page }) => {
     const homePage = new HomePage(page);
