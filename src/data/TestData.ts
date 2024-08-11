@@ -18,6 +18,6 @@ export const userData = {
         year: "2024"
     },
     expectedTotalPrice: 1234,
-    expectedSonyCount: 3, // Hypothetical number of Sony laptops expected
+    expectedSonyCount: 3, // This is a placeholder for the hypothetical number of Sony laptops expected. Note that this count changes regularly.
     sonyVaioProduct: "Sony vaio i5"
 };
