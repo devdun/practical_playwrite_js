@@ -17,5 +17,7 @@ export const userData = {
         month: "12",
         year: "2024"
     },
-    expectedTotalPrice: 1234
+    expectedTotalPrice: 1234,
+    expectedSonyCount: 3, // Hypothetical number of Sony laptops expected
+    sonyVaioProduct: "Sony vaio i5"
 };

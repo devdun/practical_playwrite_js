@@ -51,4 +51,44 @@ test.describe('Cart operations', () => {
         const itemCount = await cartPage.getItemCount();
         expect(itemCount).toBe(1);
     });
+
+    test('Add two products and a Sony vaio i5, remove Sony vaio i5, and verify its absence', async ({ page }) => {
+        const homePage = new HomePage(page);
+        const productPage = new ProductPage(page);
+        const cartPage = new CartPage(page);
+    
+        await homePage.navigateToHome();
+        
+        // Add the first product
+        await homePage.clickProduct(userData.productNames[0]); // Assume it's not Sony vaio i5
+        await productPage.addToCart();
+        await homePage.clickHomeButton();
+    
+        // Add Sony vaio i5
+        await homePage.clickProduct('Sony vaio i5');
+        await productPage.addToCart();
+        await homePage.clickHomeButton();
+    
+        // Add the second product
+        await homePage.clickProduct(userData.productNames[1]); // Assume it's also not Sony vaio i5
+        await productPage.addToCart();
+        await homePage.clickCart();
+    
+        // Wait for the cart to be visible
+        await page.waitForSelector('#tbodyid', { state: 'visible' });
+    
+        // Remove the Sony vaio i5 from the cart
+        await cartPage.removeProductFromCart('Sony vaio i5');
+    
+        // Wait until Sony vaio i5 is removed before checking the count
+        await page.waitForTimeout(2000); // Add a short delay to ensure the cart is updated
+    
+        // Verify the absence of Sony vaio i5 in the cart
+        const isSonyStillInCart = await page.locator(`text="Sony vaio i5"`).isVisible();
+        expect(isSonyStillInCart).toBeFalsy(); // Ensure Sony vaio i5 is not visible
+    
+        // Verify the number of items left in the cart (expecting 2 items now)
+        const itemCount = await cartPage.getItemCount();
+        expect(itemCount).toBe(2);
+    });
 });
