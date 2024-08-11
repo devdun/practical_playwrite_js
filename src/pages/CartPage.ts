@@ -1,16 +1,23 @@
 import { BasePage } from './BasePage';
 
 export class CartPage extends BasePage {
+
     async verifyProductInCart(productName: string): Promise<boolean> {
-        return await this.page.isVisible(`text=${productName}`);
+        return this.page.isVisible(`td:has-text("${productName}")`);
     }
+    
 
     async placeOrder(): Promise<void> {
         await this.click('button[data-target="#orderModal"]');
     }
 
     async removeProductFromCart(productName: string): Promise<void> {
-        await this.click(`//td[text()='${productName}']/following-sibling::td/button[text()='Delete']`);
+        const deleteButton = `//td[text()='${productName}']/following-sibling::td/a[contains(text(), 'Delete')]`;
+        await this.page.waitForSelector(deleteButton, { state: 'visible' });
+        await this.page.click(deleteButton);
+        
+        // Ensure the product is actually removed from the cart
+        await this.page.waitForSelector(`//td[text()='${productName}']`, { state: 'detached' });
     }
 
     async getTotalPrice(): Promise<number> {
