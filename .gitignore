@@ -53,6 +53,7 @@ Thumbs.db
 dist/
 build/
 out/
+/test-results/
 
 # Dependency directories
 jspm_packages/

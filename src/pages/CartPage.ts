@@ -14,7 +14,25 @@ export class CartPage extends BasePage {
     }
 
     async getTotalPrice(): Promise<number> {
-        const totalText = await this.getText('#totalp');
-        return parseInt(totalText || '0', 10);
+        const totalPriceElement = await this.page.$('#totalp');
+        
+        if (!totalPriceElement) {
+            // If the element is not found, assume the cart is empty and return 0
+            return 0;
+        }
+    
+        const totalPriceText = await totalPriceElement.textContent();
+        
+        if (!totalPriceText) {
+            // If the element has no text, assume the cart is empty and return 0
+            return 0;
+        }
+    
+        return parseFloat(totalPriceText.replace('$', '').trim()) || 0;
+    }
+
+    async getItemCount(): Promise<number> {
+        const itemRows = await this.page.$$('#tbodyid > tr'); // Selector to count rows within the table body
+        return itemRows.length;
     }
 }
