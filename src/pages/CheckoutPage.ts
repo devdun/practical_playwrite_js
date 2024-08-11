@@ -10,4 +10,9 @@ export class CheckoutPage extends BasePage {
         await this.type('#year', details.year);
         await this.click('button[onclick="purchaseOrder()"]');
     }
+
+    async getOrderConfirmation(): Promise<string> {
+        await this.waitForSelector('.sweet-alert.showSweetAlert.visible');
+        return this.getText('.sweet-alert.showSweetAlert.visible h2');
+    }
 }

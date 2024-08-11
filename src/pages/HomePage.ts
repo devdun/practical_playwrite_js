@@ -2,7 +2,7 @@ import { BasePage } from './BasePage';
 
 export class HomePage extends BasePage {
     async navigateToHome(): Promise<void> {
-        await this.navigate('https://www.demoblaze.com/');
+        await this.navigate('/');
     }
 
     async clickLogin(): Promise<void> {
