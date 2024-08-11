@@ -13,14 +13,22 @@ export class CartPage extends BasePage {
         await this.click(`//td[text()='${productName}']/following-sibling::td/button[text()='Delete']`);
     }
 
-    // async getTotalPrice(): Promise<number> {
-    //     const totalText = await this.getText('#totalp');
-    //     return parseInt(totalText || '0', 10);
-    // }
-
     async getTotalPrice(): Promise<number> {
-        const totalPriceText = await this.page.textContent('#totalp'); // Using the ID selector for total price
-        return parseFloat(totalPriceText.trim()); // Directly parse the text content
+        const totalPriceElement = await this.page.$('#totalp');
+        
+        if (!totalPriceElement) {
+            // If the element is not found, assume the cart is empty and return 0
+            return 0;
+        }
+    
+        const totalPriceText = await totalPriceElement.textContent();
+        
+        if (!totalPriceText) {
+            // If the element has no text, assume the cart is empty and return 0
+            return 0;
+        }
+    
+        return parseFloat(totalPriceText.replace('$', '').trim()) || 0;
     }
 
     async getItemCount(): Promise<number> {
