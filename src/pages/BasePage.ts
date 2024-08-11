@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import { config } from '../config/config';
 
 export class BasePage {
     protected page: Page;
@@ -8,7 +9,7 @@ export class BasePage {
     }
 
     async navigate(url: string): Promise<void> {
-        await this.page.goto(url);
+        await this.page.goto(config.baseURL + url);
     }
 
     async click(selector: string): Promise<void> {
@@ -20,10 +21,10 @@ export class BasePage {
     }
 
     async getText(selector: string): Promise<string> {
-        const text = await this.page.textContent(selector);
-        if (text === null) {
-            throw new Error(`No text found for selector: ${selector}`);
-        }
-        return text;
+        return this.page.textContent(selector);
+    }
+
+    async waitForSelector(selector: string): Promise<void> {
+        await this.page.waitForSelector(selector);
     }
 }
