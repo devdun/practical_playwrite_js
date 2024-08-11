@@ -1,0 +1,22 @@
+{
+    "validUser": {
+      "username": "validUser",
+      "password": "password123"
+    },
+    "invalidUser": {
+      "username": "invalidUser",
+      "password": "invalidPassword"
+    },
+    "productName": "Samsung galaxy s6",
+    "productNames": ["Samsung galaxy s6", "Nokia lumia 1520"],
+    "checkoutDetails": {
+      "name": "John Doe",
+      "country": "USA",
+      "city": "New York",
+      "card": "1234567890123456",
+      "month": "12",
+      "year": "2023"
+    },
+    "expectedTotalPrice": 1234
+  }
+  

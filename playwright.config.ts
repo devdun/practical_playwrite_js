@@ -26,6 +26,7 @@ const getBrowserLaunchOptions = (browser: string): LaunchOptions => {
 const browserLaunchOptions = getBrowserLaunchOptions(browserName);
 
 const config: PlaywrightTestConfig = {
+    workers: 2, // Set maximum 2 parallel tests
     projects: [
         {
             name: 'Browser Test',
