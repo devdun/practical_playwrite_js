@@ -29,7 +29,6 @@ Before starting, ensure you have the following installed:
 
 Follow these steps to get the project running on your local machine:
 
-    ```bash
     git clone https://github.com/devdun/practical_playwrite_js.git
     cd practical_playwrite_js
     npm install
