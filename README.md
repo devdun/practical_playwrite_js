@@ -1,6 +1,6 @@
-# SoftOne Playwright JS
+# Practical Playwright JS
 
-Welcome to the `softone_playwrite_js` GitHub repository! This project uses [Playwright](https://playwright.dev/) to provide robust automated testing solutions for web applications, ensuring compatibility across multiple browsers and enhancing the quality assurance process.
+Welcome to the `practical_playwrite_js` GitHub repository! This project uses [Playwright](https://playwright.dev/) to provide robust automated testing solutions for web applications, ensuring compatibility across multiple browsers and enhancing the quality assurance process.
 
 ## Table of Contents
 - [Features](#features)
@@ -29,15 +29,14 @@ Before starting, ensure you have the following installed:
 
 Follow these steps to get the project running on your local machine:
 
-    ```bash
-    git clone https://github.com/devdun/softone_playwrite_js.git
-    cd softone_playwrite_js
+    git clone https://github.com/devdun/practical_playwrite_js.git
+    cd practical_playwrite_js
     npm install
 
 Project Structure
 Below is an overview of the main folders and files in the repository:
 
-/softone_playwrite_js
+/practical_playwrite_js
 
 |-- /node_modules               # Node.js modules (not tracked by git)``
 
@@ -78,7 +77,7 @@ For support, kindly open an issue here with a detailed description of the proble
 Acknowledgements
 Thanks to Playwright for the automation framework.
 Node.js for the runtime environment.
-Thank you for visiting the softone_playwrite_js repository!
+Thank you for visiting the practical_playwrite_js repository!
 
 
 ### Explanation
